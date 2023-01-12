@@ -19,7 +19,7 @@ class Civi:
             print(Fore.YELLOW + "✅ | levels database connected") 
             print(Fore.YELLOW + "✅ | welcome database connected")
         except:
-            return print("❓ Status denied")
+            return print(Fore.RED + "Something went wrong ❓")
 
     @classmethod
     def update_level_data(self , message):
