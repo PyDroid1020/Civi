@@ -57,3 +57,8 @@ Civi.add_user_xp(guild_id , member_id , xp) # Add more xp to user
 
 Civi.decrease_user_xp(guild_id , member_id , xp) # Decrease xp from user
 ```
+
+# Install Civi
+```
+You can't now but you can download "civ" file in Ci/ folder and import it
+```
