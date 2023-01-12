@@ -21,7 +21,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message:nextcord.Message):
-    Civi.update_level_data(message.guild.id , message.author.id)
+    Civi.update_level_data(message)
 
 
 @client.slash_command(name="info")
