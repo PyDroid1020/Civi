@@ -38,3 +38,22 @@ async def user_info(interaction):
 
 client.run("YOUR TOKEN")
 ```
+
+# all options
+```py
+Civi.setup() # Use it in client on_ready event
+
+Civi.update_level_data(message) # Use it in on_message event.
+
+Civi.get_user_xp(guild_id , member_id) # Return user xp
+
+Civi.get_user_level(guild_id , member_id) # Return user level
+
+Civi.get_user_rank(guild_id , member_id) # Return user rank
+
+Civi.set_user_xp(guild_id , member_id , xp) # Set user xp
+
+Civi.add_user_xp(guild_id , member_id , xp) # Add more xp to user 
+
+Civi.decrease_user_xp(self , guild_id , member_id , xp) # Decrease xp from user
+```
