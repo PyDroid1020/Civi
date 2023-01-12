@@ -23,7 +23,9 @@ class Civi:
             return print("❓ Status denied")
 
     @classmethod
-    def update_level_data(self , guild_id , member_id):
+    def update_level_data(self , message):
+        guild_id = message.guild.id
+        member_id = message.author.id
         db = sqlite3.connect('./database/level.db' , isolation_level=None)
         cursor = db.cursor()
         cursor.execute(
@@ -86,4 +88,13 @@ class Civi:
             cur.execute("UPDATE guild SET exp = exp +? WHERE guild_id = ? AND user_id = ?", (xp , guild_id, member_id))
 
 
-
+    @classmethod
+    def decrease_user_xp(self , guild_id , member_id , xp):
+        db = sqlite3.connect("./database/level.db")
+        cur = db.cursor()
+        cur.execute("SELECT exp FROM guild WHERE guild_id = ? AND user_id = ?", (guild_id, member_id))
+        data = cur.fetchone()
+        if data is None:
+            return print("This user has no exp")
+        else:
+            cur.execute("UPDATE guild SET exp = exp - ? WHERE guild_id = ? AND user_id = ?", (xp , guild_id, member_id))
