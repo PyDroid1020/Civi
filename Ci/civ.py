@@ -98,19 +98,21 @@ class Civi:
             return print("This user has no exp")
         else:
             cur.execute("UPDATE guild SET exp = exp - ? WHERE guild_id = ? AND user_id = ?", (xp , guild_id, member_id))
+    @classmethod
+    def reset_member_xp(self , guild_id , member_id):
+        db = sqlite3.connect("./database/level.db" , isolation_level=None)
+        cur = db.cursor()
+        cur.execute("SELECT exp FROM guild WHERE guild_id = ? AND user_id = ?", (guild_id, member_id))
+        data = cur.fetchone()
+        if data is None:
+            return print("This user has no exp")
+        else:
+            cur.execute("UPDATE guild SET exp = 0 WHERE guild_id = ? AND user_id = ?", (guild_id, member_id))
+            
+
         
     class settings:
         class guild:
-            def reset_member_xp(self , guild_id , member_id):
-                db = sqlite3.connect("./database/level.db" , isolation_level=None)
-                cur = db.cursor()
-                cur.execute("SELECT exp FROM guild WHERE guild_id = ? AND user_id = ?", (guild_id, member_id))
-                data = cur.fetchone()
-                if data is None:
-                    return print("This user has no exp")
-                else:
-                    cur.execute("UPDATE guild SET exp = exp 0 WHERE guild_id = ? AND user_id = ?", (guild_id, member_id))
-
             def reset_guild_data(self , guild_id:int):
                 db = sqlite3.connect('./database/level.db' , isolation_level=None)
                 cur = db.cursor()
