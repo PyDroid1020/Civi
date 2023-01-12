@@ -39,7 +39,7 @@ async def user_info(interaction):
 client.run("YOUR TOKEN")
 ```
 
-# all options
+# Level options
 ```py
 Civi.setup() # Use it in client on_ready event
 
@@ -56,6 +56,13 @@ Civi.set_user_xp(guild_id , member_id , xp) # Set user xp
 Civi.add_user_xp(guild_id , member_id , xp) # Add more xp to user 
 
 Civi.decrease_user_xp(guild_id , member_id , xp) # Decrease xp from user
+```
+
+# Settins Options
+```py
+Civi.settings.guild.reset_guild_data(guild_id) # Delete all guild data
+
+Civi.settings.repair() # Fix Civi
 ```
 
 # Install Civi
