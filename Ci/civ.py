@@ -2,7 +2,6 @@ import sqlite3
 from colorama import Fore
 import math
 import os
-import aiosqlite
 
 class Civi:
     def __init__(self):
