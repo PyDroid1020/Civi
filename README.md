@@ -55,5 +55,5 @@ Civi.set_user_xp(guild_id , member_id , xp) # Set user xp
 
 Civi.add_user_xp(guild_id , member_id , xp) # Add more xp to user 
 
-Civi.decrease_user_xp(self , guild_id , member_id , xp) # Decrease xp from user
+Civi.decrease_user_xp(guild_id , member_id , xp) # Decrease xp from user
 ```
