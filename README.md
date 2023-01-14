@@ -9,11 +9,11 @@ from Ci.civ import Civi
 import nextcord
 from nextcord.ext import commands
 
-intex = discord.Intents.default()
-intex.message_content = True
-intex.guild_messages = True
-intex.guilds = True
-client = commands.Bot(command_prefix="-" , intents=intex)
+Intents = nextcord.Intents.default()
+Intents.message_content = True
+Intents.guild_messages = True
+Intents.guilds = True
+client = commands.Bot(command_prefix="-" , intents=Intents)
 
 @client.event
 async def on_ready():
