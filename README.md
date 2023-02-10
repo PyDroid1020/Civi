@@ -43,8 +43,6 @@ async def user_info(interaction:nextcord.Interaction , user:nextcord.Member=next
 @client.slash_command(name="leaderboard" , description="get list of most active users")
 async def server_leaderboard(interaction:nextcord.Interaction):
     guild = interaction.guild
-    if user is None:
-        user = interaction.user
     users = Civi.get_active_users(guild.id , 10)
     Embed = nextcord.Embed()
     Embed.title = f"{guild.name} leaderboard"
