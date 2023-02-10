@@ -40,6 +40,17 @@ async def user_info(interaction:nextcord.Interaction , user:nextcord.Member=next
     Embed.description = f"Xp:{xp}\nRank:{rank}\nLevel:{level}"
     await interaction.send(embed=Embed)
 
+@client.slash_command(name="leaderboard" , description="get list of most active users")
+async def server_leaderboard(interaction:nextcord.Interaction):
+    guild = interaction.guild
+    if user is None:
+        user = interaction.user
+    users = Civi.get_active_users(guild.id , 10)
+    Embed = nextcord.Embed()
+    Embed.title = f"{guild.name} leaderboard"
+    Embed.description = "".join(users)
+    await interaction.send(embed=Embed)
+
 
 client.run("YOUR TOKEN")
 ```
@@ -55,6 +66,8 @@ Civi.get_user_xp(guild_id , member_id) # Return user xp
 Civi.get_user_level(guild_id , member_id) # Return user level
 
 Civi.get_user_rank(guild_id , member_id) # Return user rank
+
+Civi.get_active_users(guild_id) # Return list of most active users
 
 Civi.set_user_xp(guild_id , member_id , xp) # Set user xp
 
