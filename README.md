@@ -44,7 +44,7 @@ async def user_info(interaction:nextcord.Interaction , user:nextcord.Member=next
 client.run("YOUR TOKEN")
 ```
 
-# Level options
+# Level 
 ```py
 Civi.setup() # Use it in client on_ready event
 
@@ -63,11 +63,16 @@ Civi.add_user_xp(guild_id , member_id , xp) # Add more xp to user
 Civi.decrease_user_xp(guild_id , member_id , xp) # Decrease xp from user
 ```
 
-# Settins Options
+# Settings
 ```py
 Civi.settings.guild.reset_guild_data(guild_id) # Delete all guild data
 
 Civi.settings.repair() # Fix Civi
+```
+
+# Events 
+```py
+Civi.events.on_new_level(guild_id , user_id) # Check if the user has reached new level (Use it in on_message event)
 ```
 
 # Install Civi
