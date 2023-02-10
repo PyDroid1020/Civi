@@ -1,4 +1,5 @@
 import sqlite3
+import aiosqlite
 from colorama import Fore
 import math
 import os
@@ -108,6 +109,24 @@ class Civi:
             return print("This user has no exp")
         else:
             cur.execute("UPDATE guild SET exp = 0 WHERE guild_id = ? AND user_id = ?", (guild_id, member_id))
+    @classmethod
+    def get_active_users(self , guild_id , member_id , limit=None):
+        if limit is None:
+            limit = 5
+        db = await aiosqlite.connect("./database/level.db")
+        async with db.execute(f"SELECT user_id, exp FROM guild WHERE guild_id = ? ORDER BY exp DESC LIMIT ? ", (guild_id, limit)) as cursor:
+            index = 0
+            async for entry in cursor:
+                index += 1
+                member_id, exp = entry
+                the_list = []
+                the_list.append(f"{index}) <@{member_id}> : {exp}\n")
+        if len(the_list) is 0:
+            return ["No active users"]
+        else:
+            return the_list
+        
+        
             
     class events:
         def on_new_level(guild_id , member_id):
