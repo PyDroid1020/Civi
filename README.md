@@ -17,7 +17,7 @@ client = commands.Bot(command_prefix="-" , intents=Intents)
 
 @client.event
 async def on_ready():
-    print(client.user.name + " is ready !")
+    print(f"{client.user.name} is ready !")
 
 @client.event
 async def on_message(message:nextcord.Message):
