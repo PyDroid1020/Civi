@@ -110,7 +110,7 @@ class Civi:
         else:
             cur.execute("UPDATE guild SET exp = 0 WHERE guild_id = ? AND user_id = ?", (guild_id, member_id))
     @classmethod
-    def get_active_users(self , guild_id , member_id , limit=None):
+    def get_active_users(self , guild_id , limit=None):
         if limit is None:
             limit = 5
         db = await aiosqlite.connect("./database/level.db")
