@@ -2,7 +2,7 @@
 ## Simple library to create level system to your discord bot 
 
 
-# Here's example how to use the library
+# Here's example bot using nextcord
 
 ```py
 from Ci.civ import Civi
