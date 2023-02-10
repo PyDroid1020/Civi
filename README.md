@@ -22,6 +22,10 @@ async def on_ready():
 @client.event
 async def on_message(message:nextcord.Message):
     Civi.update_level_data(message)
+    check = Civi.events.on_new_level(message.guild.id , message.author.id)
+    if check is not False:
+        Level = check
+        await message.channel.send(f"Congrats <@{message.author.id}> You reached new level !\nYour level now is {Level}") 
 
 
 @client.slash_command(name="level" , description="get member level")
