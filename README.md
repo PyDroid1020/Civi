@@ -24,10 +24,11 @@ async def on_message(message:nextcord.Message):
     Civi.update_level_data(message)
 
 
-@client.slash_command(name="info")
-async def user_info(interaction):
+@client.slash_command(name="level" , description="get member level")
+async def user_info(interaction:nextcord.Interaction , user:nextcord.Member=nextcord.SlashOption(description="The user" , required=False)):
     guild = interaction.guild
-    user = interaction.user
+    if user is None:
+        user = interaction.user
     xp = Civi.get_user_xp(guild.id , user.id)
     rank = Civi.get_user_rank(guild.id , user.id)
     level = Civi.get_user_level(guild.id , user.id)
