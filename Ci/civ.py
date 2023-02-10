@@ -109,7 +109,17 @@ class Civi:
         else:
             cur.execute("UPDATE guild SET exp = 0 WHERE guild_id = ? AND user_id = ?", (guild_id, member_id))
             
-
+    class events:
+        def on_new_level(guild_id , member_id):
+            db = sqlite3.connect('./database/level.db' , isolation_level=None)
+            cur = db.execute("SELECT exp FROM guild WHERE guild_id = ? AND user_id = ?", (guild_id, member_id))
+            data = cur.fetchone()
+            exp = data[0]
+            lvl = math.sqrt(exp) / 1
+            if lvl.is_integer():
+                return lvl
+            else:
+                return False
         
     class settings:
         class guild:
