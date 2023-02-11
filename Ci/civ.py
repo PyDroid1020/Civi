@@ -16,9 +16,7 @@ class Civi:
             if not os.path.exists(final_directory):
                 os.makedirs(final_directory)
                 sqlite3.connect('./database/level.db')
-                sqlite3.connect('./database/welcome.db')
             print(Fore.YELLOW + "✅ | levels database connected") 
-            print(Fore.YELLOW + "✅ | welcome database connected")
         except:
             return print(Fore.RED + "Something went wrong ❓")
 
@@ -159,10 +157,8 @@ class Civi:
             if not os.path.exists(final_directory):
                 os.makedirs(final_directory)
                 sqlite3.connect('./database/level.db')
-                sqlite3.connect('./database/welcome.db')
                 print(Fore.GREEN + "Fixed")
             if os.path.exists(final_directory):
                 os.makedirs(final_directory)
                 sqlite3.connect('./database/level.db')
-                sqlite3.connect('./database/welcome.db')
                 print(Fore.GREEN + "Files dirs well")   
