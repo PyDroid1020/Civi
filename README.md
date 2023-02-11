@@ -90,3 +90,11 @@ Civi.events.on_new_level(guild_id , user_id) # Check if the user has reached new
 ```
 You can't now but you can download "civ" file in Ci/ folder and import it
 ```
+
+# Change Log
+```
+[+] adding events
+[+] adding (get_active_users) to level category
+
+```
+
