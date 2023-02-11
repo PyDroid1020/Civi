@@ -5,7 +5,7 @@
 # Here's example bot using nextcord
 
 ```py
-from Ci.civ import Civi
+import Civi
 import nextcord
 from nextcord.ext import commands
 
